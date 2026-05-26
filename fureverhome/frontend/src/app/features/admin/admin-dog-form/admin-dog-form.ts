@@ -35,7 +35,7 @@ export class AdminDogForm implements OnInit {
   existingDog: any = null; // Store the existing dog data
   hasExistingImage = false; // Track if dog has an existing image
 
-  private apiUrl = 'http://localhost:8080/api/dogs';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/dogs';
 
   ngOnInit() {
     this.initializeForm();
@@ -108,7 +108,7 @@ export class AdminDogForm implements OnInit {
 
     // Priority 1: If dog has binary image in database
     if (dog.hasImage) {
-      return `http://localhost:8080/api/dogs/${dog.id}/image`;
+      return `https://fureverhome-backend-5tmf.onrender.com/api/dogs/${dog.id}/image`;
     }
 
     // Priority 2: If imageUrl is provided
@@ -122,7 +122,7 @@ export class AdminDogForm implements OnInit {
       const cleanedUrl = dog.imageUrl.startsWith('/api') ? dog.imageUrl.substring(4) : dog.imageUrl;
 
       // Construct full URL
-      return `http://localhost:8080${cleanedUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${cleanedUrl}`;
     }
 
     return null;

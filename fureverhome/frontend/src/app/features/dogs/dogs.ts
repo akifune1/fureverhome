@@ -36,7 +36,7 @@ export class Dogs implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   favoritesService = inject(FavoritesService);
-  private apiUrl = 'http://localhost:8080/api/dogs';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/dogs';
 
   // Icons
   readonly Heart = Heart;
@@ -76,7 +76,7 @@ export class Dogs implements OnInit {
 
   loadAppliedDogs() {
     // Load dogs that user has already applied for
-    this.http.get<any[]>('http://localhost:8080/api/adoption-requests/my-requests').subscribe({
+    this.http.get<any[]>('https://fureverhome-backend-5tmf.onrender.com/api/adoption-requests/my-requests').subscribe({
       next: (requests) => {
         console.log('Applied dogs loaded:', requests);
         this.appliedDogIds = new Set(requests.map((req) => req.dogId));
@@ -153,7 +153,7 @@ export class Dogs implements OnInit {
 
         if (error.status === 0) {
           this.errorMessage =
-            'Cannot connect to server. Please make sure the backend is running on http://localhost:8080';
+            'Cannot connect to server. Please make sure the backend is running on https://fureverhome-backend-5tmf.onrender.com';
         } else if (error.status === 401 || error.status === 403) {
           this.errorMessage = 'Authentication required. Please log in.';
         } else if (error.status === 404) {
@@ -251,7 +251,7 @@ export class Dogs implements OnInit {
     if (dog.hasImage) {
       // Add timestamp to bust browser cache
       const timestamp = new Date().getTime();
-      return `http://localhost:8080/api/dogs/${dog.id}/image?t=${timestamp}`;
+      return `https://fureverhome-backend-5tmf.onrender.com/api/dogs/${dog.id}/image?t=${timestamp}`;
     }
 
     // Priority 2: If imageUrl is provided
@@ -265,7 +265,7 @@ export class Dogs implements OnInit {
       const cleanedUrl = dog.imageUrl.startsWith('/api') ? dog.imageUrl.substring(4) : dog.imageUrl;
 
       // Construct full URL
-      return `http://localhost:8080${cleanedUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${cleanedUrl}`;
     }
 
     // Fallback: Return placeholder SVG

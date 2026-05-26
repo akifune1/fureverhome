@@ -60,7 +60,7 @@ export class MyRequests implements OnInit {
   isLoading = true;
   errorMessage = '';
 
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api';
 
   ngOnInit() {
     this.loadMyRequests();
@@ -99,14 +99,14 @@ export class MyRequests implements OnInit {
     if (request.dogImageUrl) {
       // If it starts with /api, prepend the base URL
       if (request.dogImageUrl.startsWith('/api')) {
-        return `http://localhost:8080${request.dogImageUrl}`;
+        return `https://fureverhome-backend-5tmf.onrender.com${request.dogImageUrl}`;
       }
       // If it's already a full URL, use it as is
       if (request.dogImageUrl.startsWith('http')) {
         return request.dogImageUrl;
       }
       // Otherwise, construct the full URL
-      return `http://localhost:8080${request.dogImageUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${request.dogImageUrl}`;
     }
 
     // Fallback: Return placeholder

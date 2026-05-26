@@ -48,7 +48,7 @@ export class DogDetail implements OnInit {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
 
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api';
 
   // Icons
   readonly ArrowLeft = ArrowLeft;
@@ -244,7 +244,7 @@ export class DogDetail implements OnInit {
     if (this.dog.hasImage) {
       // Add timestamp to bust browser cache
       const timestamp = new Date().getTime();
-      return `http://localhost:8080/api/dogs/${this.dog.id}/image?t=${timestamp}`;
+      return `https://fureverhome-backend-5tmf.onrender.com/api/dogs/${this.dog.id}/image?t=${timestamp}`;
     }
 
     // Priority 2: If imageUrl is provided
@@ -260,7 +260,7 @@ export class DogDetail implements OnInit {
         : this.dog.imageUrl;
 
       // Construct full URL
-      return `http://localhost:8080${cleanedUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${cleanedUrl}`;
     }
 
     // Fallback: Return placeholder SVG

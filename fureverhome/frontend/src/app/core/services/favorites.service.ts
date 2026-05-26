@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class FavoritesService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080/api/favorites';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/favorites';
 
   // Signal to track favorite dog IDs
   favoriteDogIds = signal<Set<number>>(new Set());

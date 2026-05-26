@@ -54,7 +54,7 @@ export class AdminDogs implements OnInit {
   // Unique breeds for filter
   breeds: string[] = [];
 
-  private apiUrl = 'http://localhost:8080/api/dogs';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/dogs';
 
   ngOnInit() {
     this.loadDogs();
@@ -211,7 +211,7 @@ export class AdminDogs implements OnInit {
     if (dog.hasImage) {
       // Add timestamp to bust browser cache and force reload
       const timestamp = new Date().getTime();
-      return `http://localhost:8080/api/dogs/${dog.id}/image?t=${timestamp}`;
+      return `https://fureverhome-backend-5tmf.onrender.com/api/dogs/${dog.id}/image?t=${timestamp}`;
     }
 
     // Priority 2: If imageUrl is provided
@@ -225,7 +225,7 @@ export class AdminDogs implements OnInit {
       const cleanedUrl = dog.imageUrl.startsWith('/api') ? dog.imageUrl.substring(4) : dog.imageUrl;
 
       // Construct full URL
-      return `http://localhost:8080${cleanedUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${cleanedUrl}`;
     }
 
     // Fallback: Return placeholder SVG

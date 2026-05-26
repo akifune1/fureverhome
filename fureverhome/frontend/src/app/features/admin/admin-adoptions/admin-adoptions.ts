@@ -55,7 +55,7 @@ export class AdminAdoptions implements OnInit {
   selectedRequest: AdoptionRequest | null = null;
   showDetailsModal = false;
 
-  private apiUrl = 'http://localhost:8080/api/adoption-requests';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/adoption-requests';
 
   ngOnInit() {
     this.loadAdoptionRequests();
@@ -97,14 +97,14 @@ export class AdminAdoptions implements OnInit {
     if (request.dogImageUrl) {
       // If it starts with /api, prepend the base URL
       if (request.dogImageUrl.startsWith('/api')) {
-        return `http://localhost:8080${request.dogImageUrl}`;
+        return `https://fureverhome-backend-5tmf.onrender.com${request.dogImageUrl}`;
       }
       // If it's already a full URL, use it as is
       if (request.dogImageUrl.startsWith('http')) {
         return request.dogImageUrl;
       }
       // Otherwise, construct the full URL
-      return `http://localhost:8080${request.dogImageUrl}`;
+      return `https://fureverhome-backend-5tmf.onrender.com${request.dogImageUrl}`;
     }
 
     // Fallback: Return placeholder

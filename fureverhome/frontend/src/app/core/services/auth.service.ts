@@ -44,7 +44,7 @@ export interface RegisterRequest {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080/api/auth';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api/auth';
 
   // Signals for reactive state management
   currentUser = signal<User | null>(null);
@@ -238,7 +238,7 @@ export class AuthService {
    * Fetch and update user profile from backend
    */
   refreshUserProfile(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/api/users/profile').pipe(
+    return this.http.get<any>('https://fureverhome-backend-5tmf.onrender.com/api/users/profile').pipe(
       tap((profile) => {
         const currentUserData = this.currentUser();
         if (currentUserData) {

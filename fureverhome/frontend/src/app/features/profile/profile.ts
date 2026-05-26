@@ -100,7 +100,7 @@ export class Profile implements OnInit {
     const currentUser = this.authService.currentUser();
 
     if (currentUser) {
-      this.http.get<UserProfile>(`http://localhost:8080/api/users/profile`).subscribe({
+      this.http.get<UserProfile>(`https://fureverhome-backend-5tmf.onrender.com/api/users/profile`).subscribe({
         next: (profile) => {
           console.log('Profile loaded:', profile);
 
@@ -117,7 +117,7 @@ export class Profile implements OnInit {
             // Prepend base URL if avatar is a relative path
             const avatarUrl = profile.avatarUrl.startsWith('http')
               ? `${profile.avatarUrl}?t=${timestamp}`
-              : `http://localhost:8080${profile.avatarUrl}?t=${timestamp}`;
+              : `https://fureverhome-backend-5tmf.onrender.com${profile.avatarUrl}?t=${timestamp}`;
             console.log('Avatar URL with cache busting:', avatarUrl);
             this.previewUrl.set(avatarUrl);
           }
@@ -180,7 +180,7 @@ export class Profile implements OnInit {
       formData.append('avatar', this.selectedFile()!);
     }
 
-    this.http.put<UserProfile>('http://localhost:8080/api/users/profile', formData).subscribe({
+    this.http.put<UserProfile>('https://fureverhome-backend-5tmf.onrender.com/api/users/profile', formData).subscribe({
       next: (response) => {
         console.log('Profile update response:', response);
         console.log('Avatar URL from backend:', response.avatarUrl);
@@ -226,7 +226,7 @@ export class Profile implements OnInit {
       newPassword: this.passwordForm.get('newPassword')?.value,
     };
 
-    this.http.put('http://localhost:8080/api/users/password', passwordData).subscribe({
+    this.http.put('https://fureverhome-backend-5tmf.onrender.com/api/users/password', passwordData).subscribe({
       next: () => {
         this.passwordSuccessMessage.set('Password updated successfully!');
         this.isUpdatingPassword.set(false);

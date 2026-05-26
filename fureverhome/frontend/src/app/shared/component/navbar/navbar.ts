@@ -73,7 +73,7 @@ export class Navbar implements OnInit {
 
     // Ensure the URL starts with / for proper construction
     const cleanedUrl = avatarUrl.startsWith('/') ? avatarUrl : '/' + avatarUrl;
-    const finalUrl = `http://localhost:8080${cleanedUrl}?t=${timestamp}`;
+    const finalUrl = `https://fureverhome-backend-5tmf.onrender.com${cleanedUrl}?t=${timestamp}`;
 
     console.log('Final avatar URL:', finalUrl);
     return finalUrl;

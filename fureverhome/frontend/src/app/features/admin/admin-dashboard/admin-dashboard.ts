@@ -51,7 +51,7 @@ export class AdminDashboard implements OnInit {
   isLoading = true;
   errorMessage = '';
 
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://fureverhome-backend-5tmf.onrender.com/api';
 
   ngOnInit() {
     this.loadDashboardStats();
